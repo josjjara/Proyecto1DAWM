@@ -1,0 +1,242 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+
+  background-color: #f5efe6;
+
+}
+
+.container {  
+  
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  grid-template-rows: 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+
+  gap: 1px 0px;
+  grid-auto-flow: row;
+  align-items: stretch;
+
+  grid-template-areas:
+    "Landing Landing Landing Landing"
+    "Landing Landing Landing Landing"
+    "About_me About_me Video Video"
+    "About_me About_me Video Video"
+    "Estudios_actuales Estudios_actuales Estudios_previos Estudios_previos"
+    "Estudios_actuales Estudios_actuales Estudios_previos Estudios_previos"
+    ". Cursos Cursos ."
+    ". Cursos Cursos ."
+    "Contact_pic Contact_pic Redes_social Redes_social"
+    "Contact_pic Contact_pic Redes_social Redes_social"
+    "Localidad Localidad Mapa Mapa"
+    "Localidad Localidad Mapa Mapa"
+    "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
+    "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
+    "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
+    "Footer Footer Footer Footer";
+  
+  height: 4000px;
+
+}
+
+.Landing { 
+
+  grid-area: Landing;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+  ". . ."
+  ". . Landing-ocupacion"
+  "Landing-nombre Landing-nombre Landing-nombre "
+  ;
+
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+
+  background-color: #343352ff;
+
+  /* Efecto Paralax con la foto de fondo*/
+
+  background-attachment: fixed;
+  background-image: url("../src/Scenic.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 65%;
+
+
+}
+
+.Landing-ocupacion{
+  grid-area: Landing-ocupacion;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.Landing-nombre{  
+  
+  grid-area: Landing-nombre;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+
+}
+
+.Landing h1{
+
+  font-weight: 600;
+  font-size: 5rem;
+
+  
+}
+
+.Landing h2{
+
+  color: white;
+  font-family:inherit;
+  font-size: 2rem;
+  border: 1px solid rgba(0,0,0,.1);
+  color: #000;
+  background-color: white;
+  border-radius: 30px;
+  padding: 1.5rem;
+
+}
+
+.About_me { grid-area: About_me; }
+
+.Video { grid-area: Video; }
+
+.Estudios_actuales { grid-area: Estudios_actuales; }
+
+.Estudios_previos { grid-area: Estudios_previos; }
+
+.Cursos { grid-area: Cursos; }
+
+.Contact_pic { grid-area: Contact_pic; }
+
+.Redes_social { grid-area: Redes_social; }
+
+.Localidad { grid-area: Localidad; }
+
+.Mapa { grid-area: Mapa; }
+
+.Enviame_msj { grid-area: Enviame_msj; }
+
+.Footer { grid-area: Footer; }
+
+/*
+.landing_section{
+
+    display: grid;
+
+}
+
+.landing_section, .contact_section{
+
+    background-color: #f5efe6;
+
+}
+
+
+.contact_section > p{
+
+    background-color: #343352;
+
+}
+
+.contact_section > p:hover{
+
+    box-shadow: 0px 50px 75px -25px #ad3500 !important;
+    top: -20px !important;
+
+}
+
+a:hover{
+
+    color: #091434;
+    text-decoration: underline;
+    cursor:crosshair;
+
+}
+*/
+/*
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+section, article {
+  border: 1px solid grey;
+  border-radius: 1%;
+  text-align: center
+}
+
+body{
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+
+}
+
+.half{
+
+  width: 49%;
+
+}
+
+.fila2{
+
+  width: 32%;
+
+}
+
+body :nth-child(8){
+
+  width: 100%;
+
+}
+
+*/
+
+/*
+Grid Mark
+
+
+.container {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "f1 f1 f1 f2 f2 f2"
+    "f3 f3 f4 f4 f5 f5"
+    "f6 f6 f6 f7 f7 f7"
+    "f8 f8 f8 f8 f8 f8"; 
+}
+.f1 { grid-area: f1; }
+.f2 { grid-area: f2; }
+.f3 { grid-area: f3; }
+.f4 { grid-area: f4; }
+.f5 { grid-area: f5; }
+.f6 { grid-area: f6; }
+.f7 { grid-area: f7; }
+.f8 { grid-area: f8; }
+
+
+*/
