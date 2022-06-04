@@ -1,4 +1,103 @@
+p{
+  place-self: center;
+  position: relative;
+}
 
+nav{
+
+  
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  z-index: 999;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: sticky;
+  
+
+}
+
+.container {  
+  
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  grid-template-rows: 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+
+  gap: 1px 0px;
+  grid-auto-flow: row;
+  align-items: stretch;
+
+  grid-template-areas:
+    "Landing Landing Landing Landing"
+    "Landing Landing Landing Landing"
+    "About_me About_me Video Video"
+    "About_me About_me Video Video"
+    "Estudios_actuales Estudios_actuales Estudios_previos Estudios_previos"
+    "Estudios_actuales Estudios_actuales Estudios_previos Estudios_previos"
+    ". Cursos Cursos ."
+    ". Cursos Cursos ."
+    "Contact_pic Contact_pic Redes_social Redes_social"
+    "Contact_pic Contact_pic Redes_social Redes_social"
+    "Localidad Localidad Mapa Mapa"
+    "Localidad Localidad Mapa Mapa"
+    "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
+    "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
+    "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
+    "Footer Footer Footer Footer";
+  
+  height: 4000px;
+
+}
+
+.Landing { 
+
+  grid-area: Landing; 
+  display: grid;    
+  align-items: center; 
+  justify-items: center;
+  background-color: teal;
+
+  background-image: url("Scenic.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.Landing p{
+
+  color: white;
+
+}
+
+.About_me { grid-area: About_me; }
+
+.Video { grid-area: Video; }
+
+.Estudios_actuales { grid-area: Estudios_actuales; }
+
+.Estudios_previos { grid-area: Estudios_previos; }
+
+.Cursos { grid-area: Cursos; }
+
+.Contact_pic { grid-area: Contact_pic; }
+
+.Redes_social { grid-area: Redes_social; }
+
+.Localidad { grid-area: Localidad; }
+
+.Mapa { grid-area: Mapa; }
+
+.Enviame_msj { grid-area: Enviame_msj; }
+
+.Footer { grid-area: Footer; }
+
+/*
 .landing_section{
 
     display: grid;
@@ -32,7 +131,7 @@ a:hover{
     cursor:crosshair;
 
 }
-
+*/
 /*
 html, body {
   height: 100%;
