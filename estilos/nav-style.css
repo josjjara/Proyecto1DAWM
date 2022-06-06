@@ -5,10 +5,10 @@ nav{
     display: flex;
     position: fixed;
 
-    right: 1rem;
+    right: 1vw;
 
-    top: 0px;
-    margin:0px;
+    top: 0vw;
+    margin:0vw;
 
     z-index: 999;
     flex-grow: 1;
@@ -20,9 +20,6 @@ nav{
     width: fit-content;
   
     list-style-type: none;
-  
-    padding: 0px;
-  
     text-align: center;
     align-content: center;
   
@@ -31,8 +28,8 @@ nav{
 #ulNav-right li{
 
     border-radius: 40px;
-    padding: 0.4rem;
-    margin: 0.1rem;
+    padding: 0.20vw;
+    margin: 0.5vw;
     background-color: #2884ba;
   
 }
@@ -50,6 +47,7 @@ nav{
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     text-decoration: none;
+    font-size: 2.5vw;
     
 }
   
