@@ -8,7 +8,12 @@ body{
 
 }
 
+img{
+  
+  width: 100%;
+  height: auto;
 
+}
 
 .container {  
   
@@ -17,7 +22,7 @@ body{
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
   grid-template-rows: 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
-
+  column-gap: 3vw;
   grid-auto-flow: row;
   align-items: stretch;
 
@@ -39,7 +44,7 @@ body{
     "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
     "Footer Footer Footer Footer";
   
-  height: 4000px;
+  height: 500vh;
 
 }
 
@@ -50,6 +55,7 @@ body{
   grid-area: Landing;
 
   display: grid;
+
   grid-template-columns: 1fr 1fr 1fr ;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
@@ -58,20 +64,17 @@ body{
   "Landing-nombre Landing-nombre Landing-nombre "
   ;
 
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-
+  
   background-color: #343352ff;
 
   /* Efecto Paralax con la foto de fondo*/
 
   background-attachment: fixed;
-  background-image: url("../src/Scenic.jpg");
+  background-image: url("../src/ScenicDesktopW.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0 65%;
-
+  background-position: bottom;
 
 }
 
@@ -92,38 +95,86 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  
 
 
 }
 
 .Landing h1{
 
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-style: oblique;
   font-size: 6vw;
-  
+  mix-blend-mode: screen;
+  color:black;
+  border-radius: 30px;
+  background-color: white;
+
+
 }
 
 .Landing h2{
 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+
   color: white;
-  font-family:inherit;
-  font-size: 4vw;
-  border: 1px solid rgba(0,0,0,.1);
-  color: #000;
-  background-color: white;
-  border-radius: 30px;
-  padding: 2vw;
+  font-size: 3.5vw;
 
 }
 
-.About_me { grid-area: About_me; }
+.About_me {
+  padding: 1.5vw;
+  grid-area: About_me; 
+  margin: auto;
+  font-family: "Montserrat",sans-serif;
 
-.Video { grid-area: Video; }
+}
 
-.Estudios_actuales { grid-area: Estudios_actuales; }
+.About_me h3{
+  text-align: center;
+  font-weight: 600;
+}
+.About_me p{
+  text-align: justify;
+  font-weight: 400;
+}
 
-.Estudios_previos { grid-area: Estudios_previos; }
+
+.Video { 
+  
+  grid-area: Video;
+  padding-top: 10vw;
+  padding-bottom: 10vw;
+
+}
+
+.Estudios_actuales { 
+  padding: 1.5vw;
+  grid-area: Estudios_actuales; 
+
+}
+
+.Estudios_previos {
+  padding: 1.5vw; 
+  grid-area: Estudios_previos; 
+}
+
+.Estudios_actuales p, .Estudios_previos p {
+  text-align: justify;
+  font-family: 'Montserrat',san;
+  font-weight: 400;
+
+}
+
+.Estudios_actuales h3, .Estudios_previos h3{
+
+  text-align: center;
+  font-family: 'Montserrat',san;
+  font-weight: 600;
+  font-size: 2vw;
+
+}
 
 .Cursos { grid-area: Cursos; }
 
@@ -133,7 +184,14 @@ body{
 
 .Localidad { grid-area: Localidad; }
 
-.Mapa { grid-area: Mapa; }
+.Mapa { 
+  grid-area: Mapa; 
+  padding: 1.5vw;
+}
+.Mapa iframe{
+  width: 100%;
+  height: 100%;
+}
 
 .Enviame_msj { grid-area: Enviame_msj; }
 

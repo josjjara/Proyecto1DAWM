@@ -17,7 +17,7 @@ nav{
 
 #ulNav-right{
 
-    width: fit-content;
+    width: 100%;
   
     list-style-type: none;
     text-align: center;
@@ -37,7 +37,8 @@ nav{
 #ulNav-right li:hover{
 
     background-color: #ff923eff;
-  
+    left: -0.8vw;
+    position: relative;
 }
   
 #ulNav-right li a {
@@ -47,7 +48,7 @@ nav{
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     text-decoration: none;
-    font-size: 2.5vw;
+    font-size: 1.3vw;
     
 }
   
