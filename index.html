@@ -1,141 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,200;1,900&display=swap" rel="stylesheet">
-  
-    
- 
-    <link rel="stylesheet" href="estilos/nav-style.css">
-    <link rel="stylesheet" href="estilos/body-style.css">
-    <link rel="stylesheet" href="estilos/responsive.css">   
-   
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-</head>
-<body>
-
-    <nav >
-
-        <ul id="ulNav-right">
-            <li><a href="#about-me-div">Acerca de mi</a></li>
-            <li><a href="#contact-div">Contacto</a></li>
-            <li><a href="#msj-div">Enviame un mensaje</a></li>
-            <li><a href="#landing-div">Regresar al inicio</a></li>
-        </ul>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,200;1,900&display=swap"
+      rel="stylesheet"
+    />
 
 
+    <link rel="stylesheet" href="estilos/generales.css" />
+    <link rel="stylesheet" href="estilos/nav-style.css" />
+    <link rel="stylesheet" href="estilos/tablelist-style.css" />
+    <link rel="stylesheet" href="estilos/body-style.css" />
+    <link rel="stylesheet" href="estilos/form-style.css">
+    <link rel="stylesheet" href="estilos/responsive.css" />
 
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul id="ulNav-right">
+        <li><a href="#about-me-div">Acerca de mi</a></li>
+        <li><a href="#contact-div">Contacto</a></li>
+        <li><a href="#msj-div">Enviame un mensaje</a></li>
+        <li><a href="#landing-div">Regresar al inicio</a></li>
+      </ul>
     </nav>
 
-    <div class="container" >
-        
-        <div class="Landing" id="landing-div">
-
-
-            <div class="Landing-nombre">
-
-                <h1>José Javier Jaramillo Saltos</h1>
-
-            </div>
-
-
-            <div class="Landing-ocupacion">
-                
-                <h2>Estudiante</h2>
-                
-            </div>
-        
-        
-        </div>
-        <div class="About_me" id="about-me-div">
-
-            <h3>Acerca de mi</h3>
-
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Sed reprehenderit labore laudantium voluptatum quia vel, culpa deserunt. 
-                Ullam sed nihil quidem quisquam, magni eligendi voluptatem sit in iure voluptatibus! Laboriosam?
-            </p>
-        
-        </div>
-        <div class="Video">
-
-            <video src=""></video>
-
-        </div>
-        <div class="Estudios_actuales">
-            <h3>Estudios actuales</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, nam?</p>
-
-            <img src="src/LogoEspol.png" alt="LOGO ESPOL">
-
-        </div>
-        <div class="Estudios_previos">
-            <h3>Estudios Previos</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, nam?</p>
+    <div class="container">
+      <div class="Landing" id="landing-div">
+        <div class="Landing-nombre">
+          <h1>José Javier Jaramillo Saltos</h1>
         </div>
 
-        <div class="Cursos">
-            <h3>Cursos Realizados</h3>
-            <table>
-                <tr>
-                    <th>Curso</th> <th>Acreditaor</th> <th>Link Certificado</th>
-                </tr>
-                <tr>
-                    <td>Introducción a desarrollo de videjuegos</td> <td>Universitat Valencia</td> <td><a href="">Certificado</a></td>
-                </tr>
-            </table>
+        <div class="Landing-ocupacion">
+          <h2>Estudiante</h2>
         </div>
+      </div>
+      <div class="About_me card-style" id="about-me-div">
+        <h3>Acerca de mi</h3>
 
-        <div class="Contact_pic" id="contact-div">
+        <p>
+          <span class="acento-p">Hola!</span> Soy un estudiante interesado en la
+          programación y la técnología. Me caracterizo por ser responsable y
+          organizado. También me interesa la parte creativa de medios visuales
+          como artes plásticas, arte digital y videojuegos. Futuro desarrollador
+          profesional.
+        </p>
+      </div>
+      <div class="Video">
+        <video autoplay muted loop>
+          <source src="src/stockvideo.mp4" type="video/mp4" />
+          No se pudo cargar el video
+        </video>
+      </div>
+      <div class="Estudios_actuales card-style">
+        <h3>Estudios actuales</h3>
+        <p>
+          Actualmente me encuentro cursando la carrera de
+          <span class="acento-p">Ingeniería en Computación</span> en la
+          universas ESPOL de Guayaquil
+        </p>
 
-            <img src="" alt="FOTO DE CONTACTO">
-
-        </div>
-
-        <div class="Redes_social">
-            <h3>Redes Sociales</h3>
-            <ul>
-                <a href="">LinkedIn</a>
-                <a href="">Twitter</a>
-                <a href="">Github</a>
-            </ul>
-        </div>
-
-        <div class="Localidad">
-            <h2> Ubicado en Guayaquil</h2>
-        </div>
-
-        <div class="Mapa">
-            
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50266.13760224034!2d-79.90631297764274!3d-2.1942353574408937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13cbe855805f%3A0x8015a492f4fca473!2sGuayaquil!5e0!3m2!1sen!2sec!4v1654660556219!5m2!1sen!2sec" 
-            width="600" height="450" 
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-
-        </div>
-        <div class="Enviame_msj" id="msj-div">
-            <h2>Enviame un mensaje</h2>
-            <form action="">
-
-            </form>
-        </div>
-
-        <div class="Footer">
-            <h4>Creado por José Jaramillo</h4>
-            <ul>
-                
-            </ul>
-        </div>
+        <img src="src/LogoEspol.png" alt="LOGO ESPOL" />
+      </div>
+      <div class="Estudios_previos card-style">
+        <h3>Estudios Previos</h3>
+        <p>
+          Graduado de <span class="acento-p">Abanderado del plantel</span> en el colegio Logos Academy, además
+          de formar parte del <span class="acento-p">"Grupo de Alto Rendimiento"</span> por la SENESCYT
+          en el 2018.
+        </p>
+        <img src="src/logo-senescyt.png" alt="LOGO SENESCYT">
 
       </div>
 
-</body>
+      <div class="Cursos">
+        <h3>Cursos Realizados</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Curso</th>
+              <th>Acreditaor</th>
+              <th>Link Certificado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Introduction to video game development with Unity</td>
+              <td>Universitat Valencia</td>
+              <td>
+                <a
+                  href="https://courses.edx.org/certificates/1c7bfc64425f4ed894893ab684700df2"
+                  >Click aquí</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Universidad Javascript</td>
+              <td>Global Mentoring en Udemy</td>
+              <td>
+                <a
+                  href="https://www.udemy.com/certificate/UC-31860cbc-15f9-4ea3-a995-fa21ff855c29/"
+                  >Click aquí</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Curador de datos</td>
+              <td>Capacitate! (Fundación Carlos Slim)</td>
+              <td>
+                <a href="https://capacitateparaelempleo.org/verifica/5bnnqpuyt/"
+                  >Click aquí</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="Contact_pic" contact-div>
+        <img src="src/fotoTeams.jpg" alt="FOTO DE CONTACTO" class="neon-style" />
+      </div>
+
+      <div class="Redes_social">
+        <h2>Redes Sociales</h2>
+        <ul>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="50"
+              height="50"
+              viewBox="0 0 172 172"
+
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#ffffff">
+                  <path
+                    d="M57.33333,21.5c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333v57.33333c0,19.78717 16.04617,35.83333 
+                    35.83333,35.83333h57.33333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333v-57.33333c0,-19.78717 -16.04617,
+                    -35.83333 -35.83333,-35.83333zM129,35.83333c3.956,0 7.16667,3.21067 7.16667,7.16667c0,3.956 -3.21067,7.16667 
+                    -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667zM86,
+                    50.16667c19.78717,0 35.83333,16.04617 35.83333,35.83333c0,19.78717 -16.04617,35.83333 -35.83333,35.83333c-19.78717,
+                    0 -35.83333,-16.04617 -35.83333,-35.83333c0,-19.78717 16.04617,-35.83333 35.83333,-35.83333zM86,64.5c-11.87412,0 
+                    -21.5,9.62588 -21.5,21.5c0,11.87412 9.62588,21.5 21.5,21.5c11.87412,0 21.5,-9.62588 21.5,-21.5c0,-11.87412 -9.62588,
+                    -21.5 -21.5,-21.5z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <a href="https://www.instagram.com/jaram360/" target="_blank">Instagram</a>
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="50"
+              height="50"
+              viewBox="0 0 172 172"
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#ffffff">
+                  <path
+                    d="M172.215,35.905c-6.35594,2.82188 -13.16875,4.71656 -20.33094,5.57656c7.31,-4.38063 12.92687,-11.31438 15.56062,-19.565c-6.82625,
+                    4.04469 -14.41844,6.9875 -22.4675,8.57312c-6.45,-6.88 -15.64125,-11.16656 -25.81344,-11.16656c-19.53812,0 -35.38094,15.82937 
+                    -35.38094,35.3675c0,2.76812 0.3225,5.46906 0.92719,8.0625c-29.40125,-1.47813 -55.45656,-15.56063 -72.91187,-36.96656c-3.05031,
+                    5.24062 -4.78375,11.31437 -4.78375,17.79125c0,12.26844 6.235,23.09906 15.73531,29.455c-5.805,-0.18813 -11.26062,-1.78719 
+                    -16.03094,-4.43438c0,0.14781 0,0.29563 0,0.44344c0,17.14625 12.20125,31.43031 28.36656,34.69562c-2.95625,0.80625 -6.08719,
+                    1.23625 -9.31219,1.23625c-2.28438,0 -4.50156,-0.215 -6.665,-0.645c4.515,14.04219 17.57625,24.295 33.04281,24.57719c-12.09375,
+                    9.48688 -27.34531,15.13063 -43.92719,15.13063c-2.86219,0 -5.67062,-0.16125 -8.42531,-0.49719c15.64125,10.05125 34.23875,15.89656 
+                    54.22031,15.89656c65.06438,0 100.64688,-53.89781 100.64688,-100.63344c0,-1.53187 -0.04031,-3.07719 -0.09406,-4.58219c6.90687,
+                    -4.98531 12.9,-11.22031 17.64344,-18.31531z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <a href="https://twitter.com/jaram360" target="_blank">Twitter</a>
+          </li>
+
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="50"
+              height="50"
+              viewBox="0 0 172 172"
+
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#ffffff">
+                  <path
+                    d="M141.04,13.76h-110.08c-9.4944,0 -17.2,7.7056 -17.2,17.2v110.08c0,9.4944 7.7056,17.2 
+                    17.2,17.2h110.08c9.4944,0 17.2,-7.7056 17.2,-17.2v-110.08c0,-9.4944 -7.7056,-17.2 -17.2,
+                    -17.2zM58.48,68.8v65.36h-20.64v-65.36zM37.84,49.7768c0,-4.816 4.128,-8.4968 10.32,-8.4968c6.192,0 
+                    10.0792,3.6808 10.32,8.4968c0,4.816 -3.8528,8.7032 -10.32,8.7032c-6.192,0 -10.32,-3.8872 -10.32,
+                    -8.7032zM134.16,134.16h-20.64c0,0 0,-31.8544 0,-34.4c0,-6.88 -3.44,-13.76 -12.04,-13.8976h-0.2752c-8.3248,0 
+                    -11.7648,7.0864 -11.7648,13.8976c0,3.1304 0,34.4 0,34.4h-20.64v-65.36h20.64v8.8064c0,0 6.6392,-8.8064 19.9864,
+                    -8.8064c13.6568,0 24.7336,9.3912 24.7336,28.4144z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <a href="https://www.linkedin.com/in/josé-jaramillo-9a95b8226/" target="_blank"> LinkedIn </a>
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="60"
+              height="60"
+              viewBox="0 0 172 172"
+
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#ffffff">
+                  <path
+                    d="M86,17.2c-37.9948,0 -68.8,30.8052 -68.8,68.8c0,32.23853 22.19947,59.21387 52.12747,66.67867c-0.32107,
+                    -0.9288 -0.52747,-2.00667 -0.52747,-3.34253v-11.75907c-2.79213,0 -7.47053,0 -8.64587,0c-4.70707,0 -8.8924,
+                    -2.02387 -10.922,-5.78493c-2.2532,-4.1796 -2.64307,-10.57227 -8.22733,-14.4824c-1.65693,-1.30147 -0.3956,
+                    -2.7864 1.5136,-2.58573c3.526,0.9976 6.45,3.41707 9.202,7.00613c2.74053,3.5948 4.03053,4.40893 9.1504,4.40893c2.48253,
+                    0 6.19773,-0.14333 9.69507,-0.69373c1.88053,-4.77587 5.13133,-9.17333 9.10453,-11.2488c-22.9104,-2.3564 -33.84387,
+                    -13.75427 -33.84387,-29.22853c0,-6.66213 2.838,-13.1064 7.65973,-18.53587c-1.5824,-5.38933 -3.57187,-16.38013 0.60773,
+                    -20.56547c10.30853,0 16.54067,6.68507 18.03707,8.49107c5.13707,-1.76013 10.77867,-2.75773 16.70693,-2.75773c5.93973,
+                    0 11.60427,0.9976 16.7528,2.7692c1.4792,-1.79453 7.71707,-8.50253 18.04853,-8.50253c4.1968,4.19107 2.1844,15.22773 
+                    0.5848,20.6056c4.79307,5.418 7.61387,11.84507 7.61387,18.49573c0,15.4628 -10.91627,26.85493 -33.79227,29.2228c6.2952,
+                    3.2852 10.8876,12.51587 10.8876,19.4704v15.67493c0,0.59627 -0.13187,1.02627 -0.20067,1.53653c26.80907,-9.39693 46.06733,
+                    -34.85293 46.06733,-64.87267c0,-37.9948 -30.8052,-68.8 -68.8,-68.8z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <a href="https://github.com/josjjara" target="_blank">Github</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="Localidad">
+        <h2>Ubicado en Guayaquil</h2>
+      </div>
+
+      <div class="Mapa">
+        <iframe
+          class="neon-style"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50266.13760224034!2d-79.90631297764274!3d-2.1942353574408937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13cbe855805f%3A0x8015a492f4fca473!2sGuayaquil!5e0!3m2!1sen!2sec!4v1654660556219!5m2!1sen!2sec"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+      <div class="Enviame_msj" id="msj-div">
+        <h2>Enviame un mensaje</h2>
+
+        <form>
+            <ul class="form-mensaje">
+                <li><label class="acento-p">Nombre y Apellido </label>
+
+                    <input type="text" name="campo-nombre" class="field-nombre field-dividio" placeholder="Nombre" /> 
+
+                    <input type="text" name="field2" class="field-nombre field-dividio" placeholder="Apellido" />
+                </li>
+                <li>
+                    <label class="acento-p">Email </label>
+                    <input type="email" name="field3" class="field-long" />
+                </li>
+                <li>
+                    <label class="acento-p">Asunto</label>
+                    <select name="field4" class="field-select field-long">
+                    <option value="Trabajo">Trabajo</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="Social">Social</option>
+                    <option value="General">Comentario General</option>
+                    <option value="Sugerencia">Sugerencia de la página</option>
+                    </select>
+                </li>
+                <li>
+                    <label class="acento-p">Mensaje</label>
+                    <textarea name="field5" id="field5" class="field-long field-textarea" placeholder="Hola Jose! "></textarea>
+                </li>
+                <li>
+                    <input type="submit" value="Submit" />
+                </li>
+            </ul>
+            </form>
+
+
+      </div>
+
+      <div class="Footer">
+        <h4>Creado por José Jaramillo</h4>
+        <ul>
+            <li> <a href="https://icons8.com/icon/62856/github">Iconos by Icons8</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>

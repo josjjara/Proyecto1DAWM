@@ -1,0 +1,88 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(#f5efe6 50%, #343352 50%);
+}
+
+img,
+video {
+  width: 100%;
+  height: auto;
+}
+a {
+  position: relative;
+  display: inline-block;
+  transition: 0.25s;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+a::after {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #ff923e;
+  opacity: 0;
+  transition: 0.25s;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover::after , a:focus::after{
+  bottom: 0;
+  opacity: 1;
+}
+
+a:hover, a:focus {
+  color: #ff923e;
+}
+
+.card-style {
+  transition: 0.3s;
+  border-radius: 30px;
+  background-color: white;
+  
+  box-shadow: 0 0.75vw 1vw 0 #091434ff;
+  position: relative;
+}
+
+.card-style:hover {
+
+  box-shadow: 0 1vw 1.5vw 0 #091434ff;
+
+  top: -1.5vh !important;
+
+}
+
+.neon-style{
+
+  border-radius: 50%;
+  box-shadow:
+  inset 0 -3em 3em #ff923e,
+        0 0  0 3px white,
+        0.3em 0.3em 1em #ff923e;
+  transition: 0.3s;
+  
+}
+
+.neon-style:hover{
+
+  transform: scale(1.05);
+
+}
+.acento-p{
+
+
+    color: #ff923e;
+    font-style: oblique;
+    font-weight: 600;
+
+}

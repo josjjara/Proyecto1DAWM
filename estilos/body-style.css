@@ -1,30 +1,14 @@
-html {
-  scroll-behavior: smooth;
-}
 
-body{
-
-  background-color: #f5efe6;
-
-}
-
-img{
-  
-  width: 100%;
-  height: auto;
-
-}
-
-.container {  
-  
+.container {
   display: grid;
 
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
-  grid-template-rows: 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+  grid-template-rows: 1.3fr 1.3fr 1fr 1fr 0.6fr 0.6fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
   column-gap: 3vw;
+
   grid-auto-flow: row;
-  align-items: stretch;
+
 
   grid-template-areas:
     "Landing Landing Landing Landing"
@@ -43,29 +27,26 @@ img{
     "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
     "Enviame_msj Enviame_msj Enviame_msj Enviame_msj"
     "Footer Footer Footer Footer";
-  
-  height: 500vh;
+
+
+  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  align-items: stretch;
 
 }
 
-
-
-.Landing { 
-
+.Landing {
   grid-area: Landing;
 
   display: grid;
 
-  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-  ". . ."
-  ". . Landing-ocupacion"
-  "Landing-nombre Landing-nombre Landing-nombre "
-  ;
+    ". . ."
+    ". . Landing-ocupacion"
+    "Landing-nombre Landing-nombre Landing-nombre ";
 
-  
-  background-color: #343352ff;
 
   /* Efecto Paralax con la foto de fondo*/
 
@@ -75,228 +56,162 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-
+  align-items: center;
+  justify-content: center;
 }
 
-.Landing-ocupacion{
+.Landing-ocupacion {
   grid-area: Landing-ocupacion;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-
 
 }
 
-.Landing-nombre{  
-  
+.Landing-nombre {
   grid-area: Landing-nombre;
-  
+
   display: flex;
+
   justify-content: center;
-  align-items: center;
-
-
 }
 
-.Landing h1{
+.Landing h1 {
 
-  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-style: oblique;
   font-size: 6vw;
   mix-blend-mode: screen;
-  color:black;
+  color: black;
   border-radius: 30px;
   background-color: white;
-
-
 }
 
-.Landing h2{
+.Landing h2 {
 
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 
   color: white;
   font-size: 3.5vw;
-
 }
 
 .About_me {
   padding: 1.5vw;
-  grid-area: About_me; 
+  grid-area: About_me;
   margin: auto;
-  font-family: "Montserrat",sans-serif;
 
 }
 
-.About_me h3{
-  text-align: center;
-  font-weight: 600;
-}
-.About_me p{
+.About_me p {
   text-align: justify;
   font-weight: 400;
+  
 }
 
-
-.Video { 
-  
+.Video {
   grid-area: Video;
   padding-top: 10vw;
   padding-bottom: 10vw;
+  padding-left: 4vw;
+  padding-right: 5vw;
 
 }
 
-.Estudios_actuales { 
-  padding: 1.5vw;
-  grid-area: Estudios_actuales; 
+.Video video{
 
+  padding: 0.5vw;
+  left: 0;
+  top: 0;
+  border-radius:40px;
+}
+
+.Estudios_actuales {
+  padding: 2vw;
+  grid-area: Estudios_actuales;
 }
 
 .Estudios_previos {
-  padding: 1.5vw; 
-  grid-area: Estudios_previos; 
+  padding: 2vw;
+  grid-area: Estudios_previos;
 }
 
-.Estudios_actuales p, .Estudios_previos p {
+.Estudios_actuales p,
+.Estudios_previos p {
   text-align: justify;
-  font-family: 'Montserrat',san;
   font-weight: 400;
-
 }
 
-.Estudios_actuales h3, .Estudios_previos h3{
+.Estudios_actuales h3,
+.Estudios_previos h3,
+.About_me h3  {
 
   text-align: center;
-  font-family: 'Montserrat',san;
   font-weight: 600;
   font-size: 2vw;
+}
+
+.Cursos {
+  grid-area: Cursos;
+  margin-top:3vw;
 
 }
 
-.Cursos { grid-area: Cursos; }
+.Contact_pic {
 
-.Contact_pic { grid-area: Contact_pic; }
+  grid-area: Contact_pic;
 
-.Redes_social { grid-area: Redes_social; }
 
-.Localidad { grid-area: Localidad; }
+  padding-left: 5vw ;
+  padding-right: 5vw;
 
-.Mapa { 
-  grid-area: Mapa; 
+
+}
+
+.Contact_pic img{
+  
+  object-fit:cover;
+  max-height: 100%;
+  align-self: center;
+}
+
+.Redes_social {
+  grid-area: Redes_social;
+
+}
+
+.Localidad {
+  grid-area: Localidad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.Localidad h2 , .Redes_social h2 , .Enviame_msj h2{
+
+  text-align: center;
+  font-weight: 600;
+  font-size: 3.5vw;
+  color: white;
+}
+
+.Redes_social h2{
+  text-align: justify;
+}
+
+.Mapa {
+  grid-area: Mapa;
   padding: 1.5vw;
 }
-.Mapa iframe{
+.Mapa iframe {
   width: 100%;
   height: 100%;
-}
-
-.Enviame_msj { grid-area: Enviame_msj; }
-
-.Footer { grid-area: Footer; }
-
-/*
-.landing_section{
-
-    display: grid;
 
 }
 
-.landing_section, .contact_section{
-
-    background-color: #f5efe6;
-
+.Enviame_msj {
+  grid-area: Enviame_msj;
 }
 
-
-.contact_section > p{
-
-    background-color: #343352;
-
+.Footer {
+  grid-area: Footer;
 }
-
-.contact_section > p:hover{
-
-    box-shadow: 0px 50px 75px -25px #ad3500 !important;
-    top: -20px !important;
-
-}
-
-a:hover{
-
-    color: #091434;
-    text-decoration: underline;
-    cursor:crosshair;
-
-}
-*/
-/*
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-section, article {
-  border: 1px solid grey;
-  border-radius: 1%;
-  text-align: center
-}
-
-body{
-
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  row-gap: 0.5rem;
-  column-gap: 0.5rem;
-
-}
-
-.half{
-
-  width: 49%;
-
-}
-
-.fila2{
-
-  width: 32%;
-
-}
-
-body :nth-child(8){
-
-  width: 100%;
-
-}
-
-*/
-
-/*
-Grid Mark
-
-
-.container {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    "f1 f1 f1 f2 f2 f2"
-    "f3 f3 f4 f4 f5 f5"
-    "f6 f6 f6 f7 f7 f7"
-    "f8 f8 f8 f8 f8 f8"; 
-}
-.f1 { grid-area: f1; }
-.f2 { grid-area: f2; }
-.f3 { grid-area: f3; }
-.f4 { grid-area: f4; }
-.f5 { grid-area: f5; }
-.f6 { grid-area: f6; }
-.f7 { grid-area: f7; }
-.f8 { grid-area: f8; }
-
-
-*/
