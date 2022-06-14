@@ -1,0 +1,78 @@
+.Cursos h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 2.5vw;
+  color: #ff923e;
+  text-align: center;
+  font-style: oblique;
+}
+
+.Cursos table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.Cursos table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.25vw;
+  font-size: 1.5vw;
+}
+
+.Cursos table th,
+table td {
+  padding: 0.5vw;
+  text-align: center;
+}
+
+.Cursos table th {
+  font-size: 1.8vw;
+  letter-spacing: 0.05vw;
+  text-transform: uppercase;
+}
+
+.Cursos tbody tr{
+
+  transition: 0.3s;
+
+}
+
+.Cursos tbody tr:hover {
+    background-color: #f5efe6;
+    box-shadow: 0 1vw 1.5vw 0 #ff923e;
+    
+}
+
+
+.Redes_social ul{
+  list-style-type:none;
+  
+}
+
+.Redes_social li:not(:last-child) { 
+  margin-bottom: 2vw;  
+}
+
+.Redes_social li{
+
+  text-align: justify;
+
+}
+.Redes_social svg{
+  width: 4vw;
+  height: 4vw;
+}
+
+.Redes_social a{
+  margin-left: 2vw ;
+  color: white;
+  text-align:end;
+  font-size: 4vw;
+  font-weight: 600;
+
+}
+
