@@ -1,4 +1,10 @@
 /********** Template CSS **********/
+#pokemon-table td{
+
+   text-transform: capitalize;
+
+}
+
 :root {
     --primary: #009CFF;
     --light: #F3F6F9;
