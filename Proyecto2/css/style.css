@@ -5,6 +5,14 @@
 
 }
 
+.table-responsive{
+    overflow: visible;
+}
+
+#pokemon-table{
+    overflow: visible;
+ }
+
 :root {
     --primary: #009CFF;
     --light: #F3F6F9;

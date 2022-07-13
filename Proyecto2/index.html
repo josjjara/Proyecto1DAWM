@@ -30,6 +30,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!--Balloon CSS Library-->
+    <link rel="stylesheet" href="css/balloon.min.css">
 </head>
 
 <body>
@@ -153,24 +156,22 @@
             </div>
             <!-- Sales Chart End -->
 
+            <div class="container-fluid pt-4 px-4" id="pokemonPop-div">
 
-            <!-- Recent Sales Start -->
+            </div>
+
+            <!-- Listado Pokemon Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="d-flex align-items-center justify-content-center mb-4 " >
                         <h6 class="mb-0">Listado de Pokemones</h6>
-
-
-
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPokemon" aria-controls="offcanvasWithBothOptions">Ver Pokemon</button>
-
                     </div>
-                    <div class="table-responsive">
-                        <table id="pokemon-table" class="display" width="100%"></table>
+                    <div class="table-responsive tooltip-big-text">
+                        <table id="pokemon-table" class="display table-hover" width="100%" data-balloon-length="medium" aria-label="Dale click a un pokemon para más detalles!" data-balloon-pos="up-left"></table>
                     </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
+            <!-- Listado Pokemon End -->
 
             <!-- Informacion especifica PopUp Start-->
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasPokemon" aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -190,13 +191,9 @@
                     
                     <div class="container-fluid">
 
-                        <img src="" alt="hoola"> <img src="" alt="dada">
+                        <img src="" alt="hola"> <img src="" alt="dada">
 
                     </div>
-
-
-                    
-
                 </div>
               </div>
             <!-- Informacion especifica PopUp Start-->
