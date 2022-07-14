@@ -1,17 +1,4 @@
 /********** Template CSS **********/
-#pokemon-table td{
-
-   text-transform: capitalize;
-
-}
-
-.table-responsive{
-    overflow: visible;
-}
-
-#pokemon-table{
-    overflow: visible;
- }
 
 :root {
     --primary: #009CFF;

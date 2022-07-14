@@ -24,7 +24,7 @@ async function fetchPokeData(peticion) {
 
 /*
 Orden del array para cada pokemon
-Pokedex(id), Nombre, Tipos, Generación ,Suma Stats ,Altura ,Peso, Color ,Flavor text, Img_url
+Pokedex(id), Nombre, Tipos, Generación ,Suma Stats ,Altura ,Peso, Color ,Flavor text, Img_url, stats_individualesv (11)
 */
 async function pokeJsonToArray(poke_species_data) {
   let arr_Pokemones = [];
@@ -40,45 +40,39 @@ async function pokeJsonToArray(poke_species_data) {
 
     let pk_Completo = [];
 
-    pk_Completo.push(data_specie["order"]);
-
-    pk_Completo.push(data_specie["name"]);
-
     let tipoStr = data_pokemon["types"][0]["type"]["name"];
 
     if (data_pokemon["types"].length == 2)
       tipoStr += " " + data_pokemon["types"][1]["type"]["name"];
 
-    pk_Completo.push(tipoStr);
     let gen = data_specie["generation"]["name"].split("-")[1];
-
+    
     switch (gen) {
       case "i":
-        gen = 1;
+        gen = "Gen-1";
         break;
       case "ii":
-        gen = 2;
+        gen = "Gen-2";
         break;
       case "iii":
-        gen = 3;
+        gen = "Gen-3";
         break;
       case "iV":
-        gen = 4;
+        gen = "Gen-4";
         break;
       case "v":
-        gen = 5;
+        gen = "Gen-5";
         break;
       case "vi":
-        gen = 6;
+        gen = "Gen-6";
         break;
       case "vii":
-        gen = 7;
+        gen = "Gen-7";
         break;
       case "viii":
-        gen = 8;
+        gen = "Gen-8";
         break;
     }
-    
 
     let sum_stats = 0;
     let x = 0;
@@ -88,8 +82,6 @@ async function pokeJsonToArray(poke_species_data) {
       sum_stats += num_stats[x];
       x++;
     }
-
-
 
     let flavor_text = "";
 
@@ -102,6 +94,9 @@ async function pokeJsonToArray(poke_species_data) {
 
     let url_img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data_specie["id"]}.png`;
 
+    pk_Completo.push(data_specie["order"]);
+    pk_Completo.push(data_specie["name"]);
+    pk_Completo.push(tipoStr);
     pk_Completo.push(gen);
     pk_Completo.push(sum_stats);
     pk_Completo.push(data_pokemon["height"]);
@@ -118,32 +113,67 @@ async function pokeJsonToArray(poke_species_data) {
 }
 
 const PokemonPopup = (pokemon) => {
+  let PokeDiv = document.querySelector("#offcanvasPokemon .offcanvas-body");
+  const htmlPopup = ` 
+    <div class="d-flex p-2" id="offcanvasPokemon-div-info"> 
+        <div class="card"> 
+          <img class="card-image img-fluid max-width: 100%" heigth="auto" src="${pokemon[9]}"/> 
+          <h2 class="card-title">(${pokemon[0]}) ${pokemon[1]} </h2> 
+          <p>${pokemon[8]}</p>
+          <h6>Type: ${pokemon[2]}  </h5>
+          <p><small>${pokemon[3]}Height: ${pokemon[5]} | Weight: ${pokemon[6]}</small></p>
+          <h5> Stats individuales </h5>
+          <p>HP: ${pokemon[10][0]} | Atk:${ pokemon[10][1]} | Def:${pokemon[10][2]} | Sp. Atk:${pokemon[10][3]}
+          |Sp. Def:${pokemon[10][4]} | Spd:${pokemon[10][5]}</p>
+        </div> 
+    </div> `;
+  let margin = {top: 100, right: 100, bottom: 100, left: 100},
+      width = Math.min(600, window.innerWidth - 10) - margin.left - margin.right
+      height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+  let data = [
+    [
+      //Stats
+      { "area": "Hit Points", "value": pokemon[10][0] },
+      { "area": "Attack", "value": pokemon[10][1] },
+      { "area": "Defense", "value": pokemon[10][2] },
+      { "area": "Special-Attack", "value": pokemon[10][3] },
+      { "area": "Special-Defense", "value": pokemon[10][4] },
+      { "area": "Speed", "value": pokemon[10][5] },
+    ],
+  ];
+  // Config for the Radar chart
+  let config = {
+    w: width,
+    h: height,
+    maxValue: 255,
+    levels: 4,
+    ExtraWidthX: 200,
+    color: d3.scaleOrdinal().range([pokemon[7]]) 
+  }
 
-    const htmlPopup = ` 
-        <div class="popup"> 
-            <button id="closeBtn" onclick="closePopup()">Close</button> 
-            <div class="card"> 
-                <img class="card-image" src="${pokemon[9]}"/> 
-                <h2 class="card-title">${pokemon[1]}</h2> 
-                <p><small>Type: ${pokemon[2]} | Height:</small> ${pokemon[5]} | Weight: ${pokemon[6]}</p> 
-            </div> 
-        </div> `;
+  //Call function to draw the Radar chart
+  PokeDiv.innerHTML += htmlPopup;
+  RadarChart.draw("#offcanvasPokemon-div-info .card ", data, config);
 
-    let PokeDiv = document.querySelector("#pokemonPop-div");
-    PokeDiv.innerHTML =  htmlPopup;
+  //Add responsive atributes to the svg
+  let svg = document.querySelector("#offcanvasPokemon svg");
+  svg.setAttribute("width","100%");
+  svg.setAttribute("height","100%");
+  svg.setAttribute("viewBox", "0 0 500 500");
+  svg.setAttribute("preserveAspectRatio","xMidYMid meet");
 
-  };
-
-const closePopup = () => {
-    console.log("closed");
-    const popup = document.querySelector('.popup');
-    popup.parentElement.removeChild(popup);
 };
 
 
+document.getElementById("offcanvasPokemon").addEventListener('hide.bs.offcanvas', function () {
+  
+  const pokemonInfo =  document.querySelector("#offcanvasPokemon-div-info");
+  pokemonInfo.parentElement.removeChild(pokemonInfo);
+
+})
+
 document.addEventListener("DOMContentLoaded", async (event) => {
   if (USE_CACHE && (pokedata = localStorage.getItem("poke_data"))) {
-    console.log(USE_CACHE);
     console.log("LocalStorage data found");
 
     pokedata = JSON.parse(pokedata);
@@ -165,8 +195,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     localStorage.setItem("poke_data", JSON.stringify(pokedata));
   }
 
-  console.log(pokedata["pokemon-species"]);
-
   let table = new DataTable("#pokemon-table", {
     ordering: false,
     info: false,
@@ -183,18 +211,20 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     ],
   });
 
-  
-
   $(document).ready(function () {
-        var table = $('#pokemon-table').DataTable();
- 
-        $('#pokemon-table tbody').on('click', 'tr', function () {
-            var data = table.row(this).data();
-            PokemonPopup(data);
-        });
+    var table = $("#pokemon-table").DataTable();
+
+    $("#pokemon-table tbody").on("click", "tr", function () {
+      var data = table.row(this).data();
+
+      const bsOffcanvas = new bootstrap.Offcanvas('#offcanvasPokemon');
+
+      bsOffcanvas.show();
+
+      PokemonPopup(data);
 
     });
+  });
 
+  spinner();
 });
-
-
