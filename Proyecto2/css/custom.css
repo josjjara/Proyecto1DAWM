@@ -14,6 +14,10 @@
   left: 100px;
 }
 
+div.topCard svg{
+   max-height:10vh;
+}
+
 .toolTip {
   pointer-events: none;
   position: absolute;
@@ -51,10 +55,39 @@
   text-transform: capitalize;
 }
 
-.table-responsive {
+#pokemon-table {
   overflow: visible;
 }
 
-#pokemon-table {
-  overflow: visible;
+
+*
+{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body{
+  background-color: #192935;
+}
+
+.wrapper
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+   transform: translate(-50%, -50%);
+
+}
+
+.pokeball {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50% ;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid;
+  animation: frames .8s  linear 0s infinite;
 }

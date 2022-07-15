@@ -40,6 +40,9 @@
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div >
+                <h1>Cargando...</h1>
+            </div>
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -92,38 +95,38 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-3 topCard">
+                            <img src="img/master-ball.png" class="img-fluid" alt="master-ball">
                             <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Pokemones</p>
+                                <h6 class="mb-0" id="h6-totalPokemones"></h6>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
+                            <img src="img/tm-normal.png" class="img-fluid" alt="tm-normal">
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Movimientos</p>
+                                <h6 class="mb-0" id="h6-totalMovimientos"></h6>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
+                            <img src="img/pp-max.png" class="img-fluid" alt="pp-max">
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Items</p>
+                                <h6 class="mb-0" id="h6-totalItems"></h6>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
+                            <img src="img/machine-part.png" class="img-fluid" alt="machine-part" height="auto">
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Generaciones</p>
+                                <h6 class="mb-0" id="h6-totalGeneraciones"></h6>
                             </div>
                         </div>
                     </div>
@@ -162,6 +165,7 @@
                 </div>
             </div>
 
+            <!-- Offcanvas del Pokemon Start-->
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasPokemon" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -169,15 +173,21 @@
                 <div class="offcanvas-body">
                 </div>
             </div>
+            <!-- Offcanvas del Pokemon End-->
 
             <!-- Listado Pokemon Start -->
-            <div class="container-fluid pt-4 px-4">
+            <div class="container-fluid pt-4 px-4" data-balloon-length="medium" aria-label="Dale click a un pokemon para más detalles!" data-balloon-pos="up">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-center mb-4 " >
                         <h6 class="mb-0">Detalles de Pokemones</h6>
                     </div>
                     <div class="table-responsive tooltip-big-text">
-                        <table id="pokemon-table" class="display table-hover" width="100%" data-balloon-length="medium" aria-label="Dale click a un pokemon para más detalles!" data-balloon-pos="up-left"></table>
+                        
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000"></div>
+                        </div>
+
+                        <table id="pokemon-table" class="display table-hover" style="width: 100%; position: relative;" ></table>
                     </div>
                 </div>
             </div>
@@ -352,9 +362,8 @@
         </script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/radarChart.js"></script>
-    <script type="text/javascript" src="js/pokemon-data.js"></script>
-    
     <script type="text/javascript" src="lib/DataTables/datatables.min.js"></script>
+    <script type="text/javascript" src="js/pokemon-data.js"></script>
 
 </body>
 
