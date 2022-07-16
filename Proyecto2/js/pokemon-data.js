@@ -1,9 +1,117 @@
 let pokedata;
-const USE_CACHE = false;  //Clasue for cache
+const USE_CACHE = false;
+const SAVE_CACHE = false;
 const MAXGENS_TO_FETCH = 10 // MAX number of generations to fetch from api(includes all their pokemon)
-const FETCH_LOCAL = false;
+const FETCH_LOCAL = true;
 
-let table = new DataTable("#pokemon-table", {
+let perTypeChart;
+
+const typesPk = ['Normal', 'Fire', 'Water', 'Grass', 'Flying', 'Fighting', 'Poison'
+,'Electric', 'Ground', 'Rock', 'Psychic', 'Ice', 'Bug', 'Ghost', 'Steel', 'Dragon', 'Dark','Fairy'];
+
+function createBarCharGenPerType(idCanvasHtml){
+
+  const ctx = document.getElementById(idCanvasHtml).getContext('2d');
+
+  const data = {
+    labels: typesPk,
+    datasets: [{
+      label: "Loading...",
+      data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      backgroundColor: [
+        'rgba(153,163,164, 0.4)',
+        'rgba(231, 76, 60, 0.4)',
+        'rgba(52 ,152,219, 0.4)',
+        'rgba(46 ,204,113, 0.4)',
+        'rgba(175,122,197, 0.4)',
+        'rgba(123, 36, 28, 0.4)',
+        'rgba(108, 52,131, 0.4)',
+        'rgba(244,208, 63, 0.4)',
+        'rgba(228,170,127, 0.4)',
+        'rgba(178, 80, 8 , 0.4)',
+        'rgba(195,49 ,215, 0.4)',
+        'rgba(65 ,234,224, 0.4)',
+        'rgba(113,156,104, 0.4)',
+        'rgba(108, 80,158, 0.4)',
+        'rgba(202,202,202, 0.4)',
+        'rgba(105, 29,249, 0.4)',
+        'rgba(71, 44, 21 , 0.4)',
+        'rgba(250,192,250, 0.4)',        
+      
+      ],
+      borderColor: [
+        'rgb(153,163,164)',
+        'rgb(231, 76, 60)',
+        'rgb(52 ,152,219)',
+        'rgb(46 ,204,113)',
+        'rgb(175,122,197)',
+        'rgb(123, 36, 28)',
+        'rgb(108, 52,131)',
+        'rgb(244,208, 63)',
+        'rgb(228,170,127)',
+        'rgb(178, 80, 8 )',
+        'rgb(195,49 ,215)',
+        'rgb(65 ,234,224)',
+        'rgb(113,156,104)',
+        'rgb(108, 80,158)',
+        'rgb(202,202,202)',
+        'rgb(105, 29,249)',
+        'rgb(71, 44, 21 )',
+        'rgb(250,192,250)',        
+      ],
+      borderWidth: 1
+    }]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 200
+        }
+      
+      },
+      skipNull: false
+
+    },
+  };
+
+   perTypeChart = new Chart(ctx,config);
+}
+
+function updateChartPerType(chart, dataPk,title){
+
+  let dataArray =[];
+  for(let i = 0; i< typesPk.length; i++){ 
+    if(dataPk[typesPk[i].toLowerCase()]){
+      dataArray[i] = dataPk[typesPk[i].toLowerCase()];
+    }else{
+      dataArray[i] = 0;
+    }
+
+  }
+
+  chart.data.datasets.forEach((dataset) => {
+
+    for(let i =0 ; i < dataArray.length; i++){
+      dataset.data[i] = dataArray[i];
+    }
+  });
+  
+  chart.options.scales.y = {
+    beginAtZero: true,
+    max: Math.max.apply(null, dataArray)+ 5
+  };
+
+  chart.data.datasets[0].label = title;
+
+  chart.update({ type: 'color', properties: ['borderColor', 'backgroundColor'], to: 'transparent' });
+}
+
+let tablePokemon = new DataTable("#pokemon-table", {
   ordering: false,
   info: false,
   columns: [
@@ -19,9 +127,7 @@ let table = new DataTable("#pokemon-table", {
   responsive: true,
 });
 
-let progressBar = document.querySelector(".progress-bar");
-
-//Functions
+const progressBar = document.querySelector(".progress-bar");
 
 async function fetchPokeApi(peticion) {
   let res = await fetch(`https://pokeapi.co/api/v2/${peticion}`);
@@ -35,10 +141,55 @@ async function fetchUrl(url) {
   return data;
 }
 
+function cargarDataTable(datosGen,table){
+  let datosPk = datosGen['pokemon'];
+
+  table.rows.add(
+    Object.values(datosPk)
+    ).draw()
+    .nodes()
+    .to$()
+    .addClass(`${datosGen['name']}pk`)
+
+ //Prevents multiple calls to PokemonPopup
+ $(document).ready(function () {
+    $(`#pokemon-table tbody`).on("click", `tr.${datosGen['name']}pk`, function () {
+      
+      var data = table.row(this).data();
+
+      const bsOffcanvas = new bootstrap.Offcanvas("#offcanvasPokemon");
+
+      bsOffcanvas.show();
+
+      PokemonPopup(data);
+    });
+  });
+
+}
+
+function cargarTotalesHeader(totalPokemones,totalMoves,totalItems,totalGeneraciones){
+  
+  document.querySelector(
+    "#h6-totalPokemones"
+  ).innerHTML = `${ totalPokemones}`;
+
+  document.querySelector(
+    "#h6-totalMovimientos"
+  ).innerHTML = `${ totalMoves}`;
+
+  document.querySelector(
+    "#h6-totalItems"
+  ).innerHTML = `${  totalItems}`;
+
+  document.querySelector(
+    "#h6-totalGeneraciones"
+  ).innerHTML = `${totalGeneraciones}`;
+
+}
+
 async function processAllFetchData(){
     pokedata = {};
     let poketemp = {};
-
     let peticiones = [
       'pokemon-species',
       'move',
@@ -47,7 +198,6 @@ async function processAllFetchData(){
       "type"
     ];
 
-
     for (let peticion of peticiones) {
       poketemp[peticion.split("?")[0]] = await fetchPokeApi(peticion);
     }
@@ -55,6 +205,13 @@ async function processAllFetchData(){
     pokedata['totalPokemon'] = poketemp['pokemon-species']['count'];
     pokedata['totalMoves'] = poketemp['move']['count'];
     pokedata['totalItems'] = poketemp['item']['count'];
+
+    cargarTotalesHeader(
+      pokedata['totalPokemon'],
+      pokedata['totalMoves'],
+      pokedata['totalItems'],
+      poketemp["generation"]['count']);
+
     pokedata["generation"] = [];
     pokedata["type"] = {};
 
@@ -70,24 +227,9 @@ async function processAllFetchData(){
 
     let i = 0;
 
-    document.querySelector(
-      "#h6-totalPokemones"
-    ).innerHTML = `${  pokedata['totalPokemon']}`;
-  
-    document.querySelector(
-      "#h6-totalMovimientos"
-    ).innerHTML = `${  pokedata['totalMoves']}`;
-  
-    document.querySelector(
-      "#h6-totalItems"
-    ).innerHTML = `${  pokedata['totalItems']}`;
-  
-    document.querySelector(
-      "#h6-totalGeneraciones"
-    ).innerHTML = `${poketemp["generation"]['count']}`;
-  
+    spinner(); //Let the user see the page while its loading other generations
 
-    spinner(); //Let the user see the page while its loading
+    let selctTypesPerGen = document.querySelector("#bar-char-TiposPk-select").add(option);
 
     for (let gen of poketemp["generation"]["results"]) {
 
@@ -107,35 +249,33 @@ async function processAllFetchData(){
       CODIGO PARA OTROS DATOS EN GRAFICOS POR CADA GENERACION
       */ 
 
-      table.rows.add(
+      cargarDataTable(pokedata["generation"][i],tablePokemon);
 
-        Object.values( pokedata["generation"][i]['pokemon'])
-        
-        ).draw()
-
-      progressBar.setAttribute("width",`${100/poketemp['generation']['results'].length-i}%`)
+      progressBar.setAttribute("style",`width= '${(100*i)/poketemp["generation"]['count']}%'`)
       
       i++;
+      
+      let option = document.createElement('option');
+      let text = generation['name'].split('-')[0] + ` ${i}`
+      option.text = text.charAt(0).toUpperCase() + text.slice(1);
+      option.value = i;
+      selctTypesPerGen.add(option);
 
-      $(document).ready(function () {
-        var table = $("#pokemon-table").DataTable();
-    
-        $("#pokemon-table tbody").on("click", "tr", function () {
-          var data = table.row(this).data();
-    
-          const bsOffcanvas = new bootstrap.Offcanvas("#offcanvasPokemon");
-  
-          bsOffcanvas.show();
-    
-          PokemonPopup(data);
-        });
-      });
-  
+      updateChartPerType(perTypeChart,pokedata['generation'][i]['pokemonPerType'], );
 
     }
-    localStorage.setItem("poke_data", JSON.stringify(pokedata));
 
+    if(SAVE_CACHE) localStorage.setItem("poke_data", JSON.stringify(pokedata));
+
+
+    let option = document.createElement('option');
+    option.text = 'Todas las Generaciones';
+    option.value = -1;
+    selctTypesPerGen.add(option);
+
+    progressBar.parentNode.parentNode.removeChild(progressBar.parentNode);
 }
+
 
 /*
 Orden del array para cada pokemon
@@ -251,13 +391,16 @@ const PokemonPopup = (pokemon) => {
     ],
   ];
   // Config for the Radar chart
+  let col = pokemon[7];
+  if(col == 'white') col = 'teal';
+
   let config = {
     w: width,
     h: height,
     maxValue: 255,
     levels: 4,
     ExtraWidthX: 200,
-    color: d3.scaleOrdinal().range([pokemon[7]]),
+    color: d3.scaleOrdinal().range([col]),
   };
 
   PokeDiv.innerHTML += htmlPopup;
@@ -275,41 +418,87 @@ const PokemonPopup = (pokemon) => {
 
 async function cargarDatos(){
 
-  if (USE_CACHE && (pokedata = localStorage.getItem("poke_data"))) {
+  if ((USE_CACHE && (pokedata = localStorage.getItem("poke_data"))) || FETCH_LOCAL) {
 
-    console.log("Using LocalStorage");
+    if(FETCH_LOCAL){
 
-    pokedata = JSON.parse(pokedata);
+      let localData = await fetch("./../data/poke_data.json");
+      pokedata = await localData.json();
+
+    }else if(!pokedata && USE_CACHE){
+
+      pokedata = JSON.parse(pokedata);
+
+    }
 
     spinner();
+    let selecGenPerType = document.querySelector("#bar-char-TiposPk-select");
+    let genNum = 1
+    for(let generation of pokedata['generation']){
+      cargarDataTable(generation,tablePokemon);
+      let option = document.createElement('option');
 
-  } else if (FETCH_LOCAL) {
+      let text = generation['name'].split('-')[0] + ` ${genNum}`
+      option.text = text.charAt(0).toUpperCase() + text.slice(1);
+      option.value = genNum -1;
+      selecGenPerType.add(option)
+      progressBar.setAttribute("style",`width='${(genNum*100)/pokedata['generation'].length}%'`);
+      genNum++;
 
-    let localData = await fetch("./data/poke_data.json");
-    let pokedata = await localData.json();
+    }
+    let option = document.createElement('option');
+    option.text = 'Todas las Generaciones';
+    option.value = -1;
+    selecGenPerType.add(option);
+    cargarTotalesHeader(pokedata['totalPokemon'],
+    pokedata['totalMoves'],
+    pokedata['totalItems'],
+    pokedata['generation'].length);
+    progressBar.parentNode.parentNode.removeChild(progressBar.parentNode);
 
-    spinner();
+    let dataForGraph = {}; 
+    for (let key in pokedata['type']) {
+      dataForGraph[key]= pokedata['type'][key]['pokemon'];
+    }
+
+    updateChartPerType(perTypeChart,dataForGraph,"Todas las Generaciones");
 
   } else {
 
-    console.log("LocalStorage not used");
     processAllFetchData();
+
   }
-
-  console.log(JSON.stringify(pokedata));
-
 }
 
-document
-  .getElementById("offcanvasPokemon")
-  .addEventListener("hide.bs.offcanvas", function () {
+document.getElementById("offcanvasPokemon").addEventListener("hide.bs.offcanvas", function () {
     const pokemonInfo = document.querySelector("#offcanvasPokemon-div-info");
     pokemonInfo.parentElement.removeChild(pokemonInfo);
   });
 
 document.addEventListener("DOMContentLoaded", async (event) => {
 
+  createBarCharGenPerType("bar-char-TiposPk-canvas");
+
   await cargarDatos();
 
+});
+
+document.querySelector("#bar-char-TiposPk-select").addEventListener("change", function() {
+  
+  if(this[this.selectedIndex].value == "-1")
+  {
+    let dataForGraph = {}; 
+
+    for (let key in pokedata['type']) {
+      dataForGraph[key]= pokedata['type'][key]['pokemon'];
+    }
+
+    updateChartPerType(perTypeChart,dataForGraph,this[this.selectedIndex].text);
+
+  }else{
+
+    updateChartPerType(perTypeChart,pokedata['generation'][this.value]['pokemonPerType'],this[this.selectedIndex].text);
+
+  }
 
 });

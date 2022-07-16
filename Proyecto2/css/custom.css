@@ -1,3 +1,10 @@
+#column-example-6 {
+  height: 200px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+
 .axis {
   font: 15px sans-serif;
 }
@@ -79,15 +86,4 @@ body{
 
    transform: translate(-50%, -50%);
 
-}
-
-.pokeball {
-  width: 60px;
-  height: 60px;
-  background-color: #fff;
-  border-radius: 50% ;
-  position: relative;
-  overflow: hidden;
-  border: 3px solid;
-  animation: frames .8s  linear 0s infinite;
 }
