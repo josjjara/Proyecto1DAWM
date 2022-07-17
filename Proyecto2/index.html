@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="css/custom.css">
 
     <!-- Chart CSS-->
-    <link rel="stylesheet" href="css/charts.min.css">    
+    <link rel="stylesheet" href="css/charts.min.css">
 
 </head>
 
@@ -63,21 +63,21 @@
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>PokeApi Data</h3>
                 </a>
-                <!--  
+
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="img/25.gif" alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
+                        <h6 class="mb-0">José J</h6>
                         <span>Admin</span>
                     </div>
                 </div>
 
-                -->
+
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link active"><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
@@ -151,103 +151,122 @@
             </div>
             <!-- Data totales End -->
 
+            <!-- Offcanvas del Pokemon Start-->
+            <div class="offcanvas offcanvas-start" data-bs-scroll="false" tabindex="-1" id="offcanvasPokemon"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                </div>
+            </div>
+            <!-- Offcanvas del Pokemon End-->
 
-            <!-- Sales Chart Start -->
+            <!-- Charts Data Start -->
+
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <h6 class="mb-4">Pokemons por Tipo</h6>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-sm-12 col-md-10 col-lg-6 col-xl-6 bg-light rounded m-2 p-3">
+                        <h6 class="">Pokemons por Tipo</h6>
                         <select class="form-select form-select-sm " aria-label=".form-select-sm example"
                             id="bar-char-TiposPk-select">
 
                         </select>
-                        <canvas id="bar-char-TiposPk-canvas"></canvas>
-                </div>
-                <!-- Sales Chart End -->
+                        <canvas id="bar-char-TiposPk-canvas" class="mw-25"></canvas>
+                    </div>
 
-                <div class="container-fluid pt-4 px-4 ">
-                    <div class="row g-4" id="pokemonPop-div">
+                    <div class="col-sm-10 col-lg-5 col-md-8 col-xl-4 mh-25 bg-light m-2 rounded p-3">
+                        <h6 class="mb-4">Moves por Tipo</h6>
+                        <canvas id="pie-char-Move-canvas"></canvas>
                     </div>
                 </div>
 
-                <!-- Offcanvas del Pokemon Start-->
-                <div class="offcanvas offcanvas-start" data-bs-scroll="false" tabindex="-1" id="offcanvasPokemon"
-                    aria-labelledby="offcanvasWithBothOptionsLabel">
-                    <div class="offcanvas-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                    </div>
-                </div>
-                <!-- Offcanvas del Pokemon End-->
 
-                <!-- Listado Pokemon Start -->
-                <div class="container-fluid pt-4 px-4" data-balloon-length="medium"
-                    aria-label="Dale click a un pokemon para más detalles!" data-balloon-pos="up">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-center mb-4 ">
-                            <h6 class="mb-0">Detalles de Pokemones</h6>
-                        </div>
-                        <div class="table-responsive tooltip-big-text">
-                            <table id="pokemon-table" class="display table-hover"
-                                style="width: 100%; position: relative;"></table>
-                        </div>
+                <div class="row g-4 gy-4 mt-3 justify-content-center">
+                    <div class="col-sm-12 col-md-10 col-lg-6 col-xl-6 bg-light rounded p-3 m-2">
+                        <h6 class="mb-4">Acumulativo Pokemones por Generación</h6>
+                        <canvas id="line-char-PokeCant-canvas"></canvas>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-10 col-lg-5 col-xl-5 bg-light rounded p-3 m-2">
+                        <h6 class="">Pokemones, Abilidades y Movimientos Nuevos por Generación</h6>
+                        <select class="form-select form-select-sm " aria-label=".form-select-sm example"
+                            id="bar-char-NewPkGen-select" aria-placeholder="Generación">
+
+                        </select>
+                        <canvas id="bar-char-NewPkGen-canvas" class="mw-25"></canvas>
                     </div>
                 </div>
-                <!-- Listado Pokemon End -->
-
-
-
-                <!-- Footer Start -->
-                <div class="container-fluid pt-4 px-4">
-                    <div class="bg-light rounded-top p-4">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 text-center text-sm-start">
-                                &copy; <a href="#">PokeApi Data(Proyecto 2)</a>, All Right Reserved.
-                            </div>
-                            <div class="col-12 col-sm-6 text-center text-sm-end">
-                                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                                Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                                </br>
-                                Distributed By <a class="border-bottom" href="https://themewagon.com"
-                                    target="_blank">ThemeWagon</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer End -->
             </div>
-            <!-- Content End -->
+
+            <!-- Listado Pokemon Start -->
+            <div class="container-fluid pt-4 px-4" data-balloon-length="medium"
+                aria-label="Dale click a un pokemon para más detalles!" data-balloon-pos="up">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-center mb-4 ">
+                        <h6 class="mb-0">Detalles de Pokemones</h6>
+                    </div>
+                    <div class="table-responsive tooltip-big-text">
+                        <table id="pokemon-table" class="display table-hover" style="width: 100%; position: relative;">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Listado Pokemon End -->
 
 
-            <!-- Back to Top -->
-            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">PokeApi Data(Proyecto 2)</a>, All Right Reserved.
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            </br>
+                            Distributed By <a class="border-bottom" href="https://themewagon.com"
+                                target="_blank">ThemeWagon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
         </div>
+        <!-- Content End -->
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/chart/chart.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/tempusdominus/js/moment.min.js"></script>
-        <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-        <!-- Template Javascript -->
-        <script type="text/javascript" src="lib/d3/dist/d3.min.js"></script>
-        <script type="module">
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
 
-            import * as d3 from "https://cdn.skypack.dev/d3@7";
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-            const div = d3.selectAll("div");
+    <!-- Template Javascript -->
+    <script type="text/javascript" src="lib/d3/dist/d3.min.js"></script>
+    <script type="module">
 
-        </script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/radarChart.js"></script>
-        <script type="text/javascript" src="lib/DataTables/datatables.min.js"></script>
-        <script type="text/javascript" src="js/pokemon-data.js"></script>
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+
+        const div = d3.selectAll("div");
+
+    </script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/radarChart.js"></script>
+    <script type="text/javascript" src="lib/DataTables/datatables.min.js"></script>
+    <script type="text/javascript" src="js/pokemon-data.js"></script>
 
 </body>
 

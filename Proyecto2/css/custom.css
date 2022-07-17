@@ -4,6 +4,41 @@
   margin: 0 auto;
 }
 
+.generation-ipk{
+  background-color: #fd7f6f;
+}
+
+.generation-iipk{
+  background-color: #7eb0d5;
+}
+
+.generation-iiipk{
+  background-color: #b2e061;
+}
+
+.generation-ivpk{
+  background-color: #bd7ebe;
+}
+
+.generation-ivpk{
+  background-color: #ffb55a;
+}
+
+.generation-vpk{
+  background-color: #ffee65;
+}
+
+.generation-vipk{
+  background-color: #beb9db;
+}
+
+.generation-viiipk{
+  background-color: #fdcce5;
+}
+
+.generation-viipk{
+  background-color: #8bd3c7;
+}
 
 .axis {
   font: 15px sans-serif;
