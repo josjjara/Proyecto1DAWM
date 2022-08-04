@@ -203,8 +203,6 @@ function createPieCharMovesPerType(idCanvasHtml, dataPk){
 
 function updateChartPerType(chart, dataPk,title){
 
-
-
   let dataArray =[];
   for(let i = 0; i< typesPk.length; i++){ 
     if(dataPk[typesPk[i].toLowerCase()]){

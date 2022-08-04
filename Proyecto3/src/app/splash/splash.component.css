@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Cousine:wght@700&display=swap");
+
+.container{
+  background: linear-gradient(0deg, #323640 50%, #3d414a 100%);
+
+}
+
+.titulo {
+  font-family: "Cousine", monospace;
+  color: white;
+}
+
+.v-align {
+  padding: 30vh 0;
+}
+
+.full {
+  min-height: 100vh;
+}
