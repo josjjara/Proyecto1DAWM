@@ -7,19 +7,27 @@
 
   <div class="row v-align justify-content-center pb-0 pt-0 mt-5 mb-5">
 
-    <div class="col-5">
+    <div class="col-5 text-center">
       <form>
-        <mat-form-field color="primary" class="example-full-width" appearance="outline" name="username">
+        <mat-form-field color="primary" appearance="outline" >
           <mat-label>Username</mat-label>
-          <input matInput placeholder="UsernameExample123" >
+          <input matInput placeholder="UsernameExample123" name="username">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label color="accent" >Password</mat-label>
-          <input matInput placeholder="*******" type="password" name="password">
+
+
+        <mat-form-field appearance="outline" name="password">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" name="password">
+          <button type='button' mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
+
+
+        <button type="submit" mat-raised-button >Log in</button>
       </form>
-      <button mat-raised-button color="primary">Log in</button>
+
     </div>
   </div>
 
