@@ -1,0 +1,17 @@
+.toolbarNav{
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+  background-color: #36354a;
+}
+mat-card{
+  background-color:#e347aa !important;
+}
+
+mat-icon{
+
+  color:#d886ff
+}
