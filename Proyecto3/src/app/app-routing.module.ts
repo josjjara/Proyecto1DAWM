@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ApiViewComponent } from './api-view/api-view.component';
 
+
 const routes: Routes = [
   {path:"splash", component: SplashComponent},
   {path:"login", component: LoginComponent},
   {path:"home",component: HomeComponent},
   {path:"developers", component: DevelopersComponent },
   {path:"games", component: GamesComponent },
-  {path:"api-view", component: ApiViewComponent}
+  {path:"api-view", component: ApiViewComponent},
+  {path:"**", component:SplashComponent}
 ];
 
 @NgModule({

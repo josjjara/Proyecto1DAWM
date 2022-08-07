@@ -16,9 +16,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-
-
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,10 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatProgressBarModule,
+    FlexLayoutModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
