@@ -1,0 +1,68 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="row justify-content-center mt-2" >
+  <div class="d-flex col-6 text-center">
+    <span>
+      <button matSuffix mat-button>
+        <mat-icon >filter_list</mat-icon>
+      </button>
+    </span>
+    <mat-card>
+      Developers
+    </mat-card>
+
+
+
+  </div>
+  <mat-form-field class="mt-0 searchbar">
+    <span matPrefix> </span>
+    <input type="tel" matInput placeholder="Search" name= "search">
+    <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+  </mat-form-field>
+</div>
+
+<cdk-virtual-scroll-viewport  class="col-12"  itemSize="100" style="height:100%" >
+
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly center" >
+    <div *cdkVirtualFor="let item of Items" fxFlex="35%" fxFlexAlign="center">
+      <mat-card class=" mt-3 justify-content-center">
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <mat-card-content>
+          <span>{{item}}<button mat-button><mat-icon >bookmark</mat-icon></button></span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</cdk-virtual-scroll-viewport>
+
+<mat-toolbar class="toolbarNav">
+  <button mat-flat-button routerLink="/home" routerLinkActive="active-link">
+    <mat-icon >home</mat-icon>
+    <p>Home</p>
+  </button>
+  <button mat-flat-button routerLink="/developers" routerLinkActive="active-link">
+    <mat-icon class="">groups</mat-icon>
+    <p>Devs</p>
+  </button>
+  <button mat-flat-button routerLink="/games" routerLinkActive="active-link">
+    <mat-icon class="">sports_esports</mat-icon>
+    <p>Games</p>
+  </button>
+  <button mat-flat-button routerLink="/profile" routerLinkActive="active-link">
+    <mat-icon class="">person</mat-icon>
+    <p>Profile</p>
+  </button>
+</mat-toolbar>

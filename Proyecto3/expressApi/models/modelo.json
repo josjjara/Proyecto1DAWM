@@ -1,0 +1,50 @@
+{
+	"model": {
+		"type": "Object",
+		"value": {
+			"idJuego": {
+				"type": "incrementNumber",
+				"options": {
+					"from": 1
+				}
+			},
+			"fechaLanzamiento": {
+				"type": "faker",
+				"value": "date.between",
+				"options": ["1986-01-02", "2024-12-31"]
+			},
+
+			"leadDesigner": {
+				"type": "Object",
+				"value": {
+					"firstName": {
+						"type": "faker",
+						"value": "name.firstName"
+					},
+					"lastName": {
+						"type": "faker",
+						"value": "name.lastName"
+					}
+				}
+			},
+
+            "sales": {
+                "type": "randomNumberBetween",
+                "value": [1000000, 30500300]
+              }
+
+            ,
+
+            "genre": {
+                "type": "randomElementInArray",
+                "value": ["RPG", "FPS", "Sandbox", "MOBA", "Adventure","Platformer","Racing","Fighting","Simulation"]
+              },
+
+
+              "description": {
+                  "type": "faker",
+                  "value": "random.words"
+              }
+		}
+	}
+}
