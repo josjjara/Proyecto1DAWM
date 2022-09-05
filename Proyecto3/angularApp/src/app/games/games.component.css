@@ -11,6 +11,26 @@ mat-card{
   background-color:#e347aa !important;
 }
 
+p{
+  width: 100%;
+}
+
+mat-card-content{
+  width: 100%;
+}
+
+mat-form-field{
+
+  color: white;
+
+}
+
+.bold{
+
+  color: #7e1472;
+
+}
+
 mat-icon{
 
   color:#d886ff

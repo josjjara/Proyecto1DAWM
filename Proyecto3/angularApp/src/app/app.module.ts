@@ -20,6 +20,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RouterModule } from '@angular/router';
+import {HttpClientModule } from '@angular/common/http';
+import {MatTableModule } from '@angular/material/table';
+import { TableVirtualScrollModule } from 'ng-table-virtual-scroll';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { RouterModule } from '@angular/router';
     MatProgressBarModule,
     FlexLayoutModule,
     ScrollingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    MatTableModule,
+    TableVirtualScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,12 +2,24 @@
 	"model": {
 		"type": "Object",
 		"value": {
+
+			"nombre": {
+				"type": "faker",
+				"value": "random.words"
+			},
+
 			"idJuego": {
 				"type": "incrementNumber",
 				"options": {
 					"from": 1
 				}
 			},
+
+            "desarrollador": {
+                "type": "randomElementInArray",
+                "value": ["343 Industries", "Ubisoft", "Bungie", "2kGames", "Telltale","Skybound","Mojang","Infinity Ward","Bethesda"]
+            },
+
 			"fechaLanzamiento": {
 				"type": "faker",
 				"value": "date.between",

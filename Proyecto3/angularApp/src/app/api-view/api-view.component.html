@@ -1,1 +1,59 @@
-<p>api-view works!</p>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Gdevs</span>
+  <span class="example-spacer"></span>
+
+</mat-toolbar>
+
+<div class="col-12 d-flex align-items-center justify-content-center ">
+  <mat-card>
+    Developers
+  </mat-card>
+
+</div>
+
+<div class="row justify-content-center mt-2" >
+
+  <mat-form-field class="mt-0 searchbar">
+    <span matPrefix> </span>
+    <input type="tel" matInput placeholder="Search" name= "search">
+    <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+  </mat-form-field>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url Endpoint</th>
+      <th>Uso</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let api of apiEndpoints">
+    <tr>{{api.url}}</tr>
+    <tr>{{api.uso}}</tr>
+  </tbody>
+
+</table>
+
+
+<mat-toolbar class="toolbarNav">
+  <button mat-flat-button routerLink="/home" routerLinkActive="active-link">
+    <mat-icon >home</mat-icon>
+    <p>Home</p>
+  </button>
+  <button mat-flat-button routerLink="/developers" routerLinkActive="active-link">
+    <mat-icon class="">groups</mat-icon>
+    <p>Devs</p>
+  </button>
+  <button mat-flat-button routerLink="/games" routerLinkActive="active-link">
+    <mat-icon class="">sports_esports</mat-icon>
+    <p>Games</p>
+  </button>
+  <button mat-flat-button routerLink="/api-view" routerLinkActive="active-link">
+    <mat-icon class="">person</mat-icon>
+    <p>Profile</p>
+  </button>
+</mat-toolbar>
+

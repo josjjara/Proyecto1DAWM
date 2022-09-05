@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { RecursoService } from '../servicio/recurso.service';
+
+interface Desarrollador {
+  idDesarrollador:number;
+  nombre: string;
+  especialidad: string;
+  anio: number;
+  cantEmpleados: number;
+}
+
 
 @Component({
   selector: 'app-developers',
@@ -7,9 +17,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevelopersComponent implements OnInit {
 
-  constructor() { }
-  Items:string[] = ["343","Bethesda","Infinity Ward","Ubisoft","Bungie","2kGames","Telltale","Skybound"];
+  items:Desarrollador[] = [];
+
+  constructor(private recursoService : RecursoService) {
+
+    recursoService.getDesarrolladores().subscribe(respuesta => {
+      this.items = respuesta as Array<Desarrollador>
+    })
+
+  }
+
   ngOnInit(): void {
   }
+
+
 
 }

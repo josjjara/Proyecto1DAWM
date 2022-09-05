@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { RecursoService } from '../servicio/recurso.service';
+
+interface ApiUrl{
+  url:string;
+  uso:string;
+}
 
 @Component({
   selector: 'app-api-view',
@@ -7,9 +13,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiViewComponent implements OnInit {
 
-  constructor() { }
+  apiEndpoints:Array<ApiUrl> = []
+
+  constructor(private recursoService: RecursoService) {
+    recursoService.getApi().subscribe(respuesta => {
+      this.apiEndpoints = respuesta as Array<ApiUrl>
+    })
+  }
 
   ngOnInit(): void {
+
+
   }
 
 }
